@@ -7,15 +7,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Health check route
-app.get("/", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Server is running 🚀"
-  });
+// Health check
+app.get("/api/health", (req, res) => {
+  res.json({ success: true, message: "Server is running 🚀" });
 });
 
-
+// API routes
 app.use("/api", contactRoutes);
 
 export default app;
